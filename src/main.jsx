@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Navbar from './Component/Navbar.jsx'
 import About from './Component/About.jsx'
 import Contact from './Component/Contact.jsx'
+import Error from './Component/Error.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -15,6 +16,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Route path="/" element={<App/>}/>
       <Route path="/about" element={<About/>}/>
       <Route path="/contact" element={<Contact/>}/>
+      <Route path="*" element={<Error />}/>
     </Routes>
     </BrowserRouter>
   </React.StrictMode>,
