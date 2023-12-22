@@ -1,15 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { decrement, increment } from "../Redux/Action";
 import "./Todo.css";
 
 function Todo() {
   const [index, setIndex] = useState(2);
+
   const [title, setTitle] = useState("title");
   const [description, setDescription] = useState("description");
   const dispatch = useDispatch();
   const counter = useSelector((state) => state.count.count);
-  counter.map((result) => console.log(result.title + " " + result.description));
+ 
+  // counter.map((result) => console.log(result.title + " " + result.description));
   return (
     <>
       <h1>TODO LIST</h1>
@@ -29,6 +31,7 @@ function Todo() {
         onClick={() => {
           dispatch(increment(index, title, description));
           setIndex(Number(index) + Number(1));
+          
         }}
       >
         ADD TEXT
@@ -36,7 +39,8 @@ function Todo() {
 
      
 
-      {counter.map((result) => (
+      {JSON.parse(localStorage.getItem("list"))?.map((result) => (
+       
         <>
           <ul className="list">
             <li>
@@ -46,6 +50,7 @@ function Todo() {
               <button
         onClick={() => {
           dispatch(decrement(result.index,result.title,result.description));
+          
         }}
       >
         SUB TEXT
@@ -53,6 +58,7 @@ function Todo() {
             </li>
           </ul>
         </>
+      
       ))}
     </>
   );

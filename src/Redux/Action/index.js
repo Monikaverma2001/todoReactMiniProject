@@ -15,6 +15,7 @@ export const decrement=(i,value,value1)=>{
     return {
         type:DECREMENT,
         payload:{
+            
             index:i,
             title:value,
             description:value1
