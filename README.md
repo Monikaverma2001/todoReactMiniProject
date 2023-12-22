@@ -11,3 +11,5 @@ to give routing use commands:
 npm install react-router react-router-dom
 use 
 
+this project using localStorage
+
